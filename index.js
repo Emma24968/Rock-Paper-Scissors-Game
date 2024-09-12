@@ -1,8 +1,9 @@
 const game = () => {
     let pScore = 0;
     let cScore = 0;
-  
 
+    
+    
     const startGame = () => {
       const playBtn = document.querySelector(".intro button");
       const introScreen = document.querySelector(".intro");
@@ -19,7 +20,7 @@ const game = () => {
       const playerHand = document.querySelector(".player-hand");
       const computerHand = document.querySelector(".computer-hand");
       const hands = document.querySelectorAll(".hands img");
-  
+      
       hands.forEach(hand => {
         hand.addEventListener("animationend", function() {
           this.style.animation = "";
@@ -51,7 +52,7 @@ const game = () => {
       playerScore.textContent = pScore;
       computerScore.textContent = cScore;
     };
-  
+    
     const compareHands = (playerChoice, computerChoice) => {
       const winner = document.querySelector(".winner");
       if (playerChoice === computerChoice) {
@@ -106,4 +107,9 @@ const game = () => {
     playMatch();
   };
   
+        document.getElementById('play').addEventListener('click', () => {  
+          document.getElementById('myAudio').play().catch(error => {
+            console.error('Error playing audio:', error);
+          });
+        });
   game();
